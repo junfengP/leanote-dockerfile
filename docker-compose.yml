@@ -8,6 +8,7 @@ services:
     volumes:
       - "./conf/app.conf:/go/src/github.com/leanote/leanote/conf/app.conf"
       - './data/leanote/log:/var/log'
+      - './files:/go/src/github.com/leanote/leanote/files/'
     ports:
       - "8080:8080"
     depends_on:
@@ -25,3 +26,4 @@ services:
       test: "echo 'db.stats().ok' | mongo 127.0.0.1:27017/leanote --quiet"
     volumes:
       - "./data/mongodb:/data/db"
+      - "./data/output:/output"
